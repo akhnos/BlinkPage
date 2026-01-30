@@ -128,3 +128,11 @@ export function verifyButton(selector, expected = {}, shouldClick = false) {
       }
     });
 }
+
+export function verifyFieldErrorMessage(fieldName, expectedError){
+  cy.get(`input[name="${fieldName}"]`)
+    .parent()
+    .find('span')
+    .should('be.visible')
+    .and('have.text', expectedError);
+}
