@@ -65,6 +65,10 @@ class LoginPage {
                 cy.contains(errorMessage).should('be.visible')
             })
     }
+
+    forgotPasswordButton() {
+        cy.get('div._link_1ov99_66 span').eq(0).should('be.visible').contains('Forgotten password?').click();
+    }
 }
 
 export const loginPage = new LoginPage();

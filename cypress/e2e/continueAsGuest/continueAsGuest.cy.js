@@ -32,7 +32,7 @@ describe('Enter the application as a guest user', () => {
 
     });
 
-    it.only('Guest user creates a project→ User clicks Login→ User logs in with an existing account', () => {
+    it('Guest user creates a project→ User clicks Login→ User logs in with an existing account', () => {
 
         // 🌐 Visit the app's root page
         cy.visit('/');

@@ -285,7 +285,6 @@ export const signUpWithValidData = (name, email, password, confirmPassword) => {
   );
 };
 
-
 export const loginWithValidData = (email, password) => {
   verifyTextField(
     'input[name="email"]',
@@ -333,3 +332,27 @@ export const loginWithValidData = (email, password) => {
   );
 };
 
+export const forgotPasswordModal = (email) => {
+  cy.get('span._title_1ht8b_1').should('be.visible').contains('Password Recovery');
+
+  cy.get('div._password-recovery_3iwy4_1 p').should('be.visible').contains('Please enter your email address to recover your password.');
+  
+  cy.get('input[placeholder="Email"]').should('be.visible').type(email);
+  // verifyTextField(
+  //   'input[name="email"]',
+  //   {
+  //     fontSize: '10px',
+  //     textColor: 'rgb(220, 220, 220)',
+  //     backgroundColor: 'rgb(33, 33, 33)',
+  //     borderRadius: '6px',
+  //     value: email,
+  //     shouldType: true,
+  //     shouldClear: true,
+  //     placeholder: 'E-mail',
+  //   },
+  //   true,
+  //   true
+  // );
+
+  cy.get('button._buttonAttom_1k5xv_1._primary_1k5xv_28').contains('Recover').should('be.visible').click();
+};
